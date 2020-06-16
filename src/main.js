@@ -35,7 +35,12 @@ class App {
       titleEl.appendChild(document.createTextNode(repo.name));
 
       let descriptionEl = document.createElement("p");
-      descriptionEl.appendChild(document.createTextNode(repo.description));
+      
+      if (repo.description === null) {
+        descriptionEl.appendChild(document.createTextNode("Sem descrição."));
+      } else {     
+        descriptionEl.appendChild(document.createTextNode(repo.description)); 
+      }
 
       let linkEl = document.createElement("a");
       linkEl.setAttribute("target", "_blank");
